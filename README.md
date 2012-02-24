@@ -1,18 +1,17 @@
-# README for a newly created project.
+# Node.js的初學者筆記
 
-There are a couple of things you should do first, before you can use all of Git's power:
+將自己學習用Coffee寫Node.js的經驗整理成筆記，並分享給正在或將來也要走上這條學習之路的人。
 
-  * Add a remote to this project: in the Cloud9 IDE command line, you can execute the following commands
-    `git remote add [remote name] [remote url (eg. 'git@github.com:/ajaxorg/node_chat')]` [Enter]
-  * Create new files inside your project
-  * Add them to to Git by executing the following command
-    `git add [file1, file2, file3, ...]` [Enter]
-  * Create a commit which can be pushed to the remote you just added
-    `git commit -m 'added new files'` [Enter]
-  * Push the commit the remote
-    `git push [remote name] master` [Enter]
+這個系列文章會寫多少還不知道，不過我會盡量把自己遇到的困惑，整理成較有完整的形式來呈現。
 
-That's it! If this doesn't work for you, please visit the excellent resources from [Github.com](http://help.github.com) and the [Pro Git](http://http://progit.org/book/) book.
-If you can't find your answers there, feel free to ask us via Twitter (@cloud9ide), [mailing list](groups.google.com/group/cloud9-ide) or IRC (#cloud9ide on freenode).
+目前手邊已經有的系列有:
+1.在Windows安裝Node.js和CoffeeScript超簡單!!
+2.Node.jS初學者筆記(1)-用GET傳送資料
+3.Node.jS初學者筆記(2)-用POST傳送資料
+4.Node.jS初學者筆記(3)-用Ajax傳送資料
 
-Happy coding!
+這些文章都是先發表在iT邦幫忙之後，再整理過來，所以想看到有沒有新的進度，可以先到[iT邦幫忙的node.js初學者筆記](http://ithelp.ithome.com.tw/category/node.js%E5%88%9D%E5%AD%B8%E8%A8%98)看看。
+
+如果想要看完整形式的，就等這邊的囉，以上。
+
+Noed.js rcok the world!
