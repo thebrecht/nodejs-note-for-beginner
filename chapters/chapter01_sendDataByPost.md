@@ -11,17 +11,16 @@ Node.js可以拿來建構網站/網站應用程式，比較特別的是，它本
 ##Step 1－啟動Server
 
 首先讓我們來看一下程式碼：
-```
-http = require 'http'
-server = http.createServer (req,res) ->
-    res.writeHead 200,'Content-Type':'text/html'
-        res.end "<h1>歡迎光臨Node.js菜鳥筆記</h1>"
 
-    server.listen 3000
-
+	http = require 'http'
+	server = http.createServer (req,res) ->
+    		res.writeHead 200,'Content-Type':'text/html'
+        	res.end "<h1>歡迎光臨Node.js菜鳥筆記</h1>"
+        
+	server.listen 3000
 	console.log 'Server跑起來了，現在時間是:' + new Date()
 
-```
+
 第1行先用require方式，把node.js預設的http module引用進來。要啟用Web Server，就是靠它。
 
 第2行我們用http的createServer方法來建立一個Web Server的實體物件。
@@ -30,7 +29,7 @@ createServer後面接了一個奇怪的「(req,res)->」，這是CoffeeScript的
 
 > ->
 
-	相當於
+相當於
 	
 > function(){}
 
@@ -64,17 +63,16 @@ createServer後面接了一個奇怪的「(req,res)->」，這是CoffeeScript的
 
 ##第1動
 執行cmd到命令列模式底下，找到app.coffee所在的目錄，執行:
-```
-coffee -c app.coffee
-```
+
+	coffee -c app.coffee
 
 執行完後，就會發現目錄底下多了一個app.js的檔案了。
 
 ##第2動
 接下來就是要啟用Server這個神聖的moment了。在app.js的所在目錄下，執行:
-```
-node app.js
-```
+
+	node app.js
+
 
 順利的話，就會看到console.log那一行訊息跑出來了。
 <img src='http://ithelp.ithome.com.tw/upload/images/20120208/201202081600554f322bb7aaada_resize.png' />
@@ -89,23 +87,22 @@ node app.js
 Server起來之後，接下來讓我們準備一個使用GET方法傳送資料的表單。
 
 *signupform.html*
-```
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Node.js菜鳥筆記(1)</title>
-		<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-	</head>
-	<body>
-		<h1>Node.js菜鳥筆記-註冊</h1>
-		<form id="signup" method="GET" action="http://localhost:3000/Signup">
-			<label>使用者名稱：</label><input type="text" id="username" name="username" /><br>
-			<label>電子郵件：</label><input type="text" id="email" name="email" /><br>
-			<input type="submit" value="註冊我的帳號" /><br>
-		</form>
-	</body>
-</html>
-```
+
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Node.js菜鳥筆記(1)</title>
+			<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+		</head>
+		<body>
+			<h1>Node.js菜鳥筆記-註冊</h1>
+			<form id="signup" method="GET" action="http://localhost:3000/Signup">
+				<label>使用者名稱：</label><input type="text" id="username" name="username" /><br>
+				<label>電子郵件：</label><input type="text" id="email" name="email" /><br>
+				<input type="submit" value="註冊我的帳號" /><br>
+			</form>
+		</body>
+	</html>
 
 <img src='http://ithelp.ithome.com.tw/upload/images/20120208/201202081601034f322bbf3e624_resize.png' /> 
 
@@ -127,25 +124,25 @@ Server起來之後，接下來讓我們準備一個使用GET方法傳送資料�
 一旦能取得username和email的值，程式就能加以應用了。
 
 所以我們要來替app.js加一點工：
-```
-http = require 'http'
-url = require 'url' 
 
-server = http.createServer (req,res) -> 
-  urlData = url.parse req.url,true
-  action = urlData.pathname
+	http = require 'http'
+	url = require 'url' 
+
+	server = http.createServer (req,res) -> 
+  		urlData = url.parse req.url,true
+  		action = urlData.pathname
   
-  res.writeHead 200,"Content-Type":"text/html"
-  if action is "/Signup"
-    user = urlData.query
-    res.end "<h1>#{user.username}歡迎您的加入</h1><p>我們已經將會員啟用信寄至#{user.email}</p>"
-  else
-    res.end "<h1>歡迎光臨Node.js菜鳥筆記</h1>"
+  		res.writeHead 200,"Content-Type":"text/html"
+  			if action is "/Signup"
+    				user = urlData.query
+    				res.end "<h1>#{user.username}歡迎您的加入</h1><p>我們已經將會員啟用信寄至#{user.email}</p>"
+  			else
+    				res.end "<h1>歡迎光臨Node.js菜鳥筆記</h1>"
   
-server.listen 3000
+	server.listen 3000
   
-console.log 'Server跑起來了，現在時間是:' + new Date()
-```
+	console.log 'Server跑起來了，現在時間是:' + new Date()
+
 
 我們看到第2行新引進一個url module，它是用來協助我們解析URL的模組，url.parse在第5行中，傳入url字串，也就是req.url。另外第二個參數的用意是，設為ture則引進querystring模組來協助處理，預設是false。它影響到的是urlData.query，設為true會傳回物件，不然就只是一般的字串。
 
@@ -179,5 +176,5 @@ node.js用GET方法拿到資料很簡單，只需要解析url字串再塞給需�
 1. node.js的http module說明：http://nodejs.org/docs/latest/api/http.html 
 2. node.js的url module說明： http://nodejs.org/docs/latest/api/url.html 
 3. node.js的querystring module說明: http://nodejs.org/docs/latest/api/querystring.html 
-4. The Little Book on CoffeeScript: http://arcturo.github.com/library/coffeescript/ 
-5.Node入門(中文): http://www.nodebeginner.org/index-zh-tw.html 
+4. The Little Book on CoffeeScript: http://arcturo.github.com/library/coffeescript/
+5. Node入門(中文): http://www.nodebeginner.org/index-zh-tw.html 
