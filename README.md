@@ -8,7 +8,7 @@
 
 1.在Windows安裝Node.js和CoffeeScript超簡單!!
 
-2.Node.jS初學者筆記(1)-用GET傳送資料
+2.Node.jS初學者筆記(1)-用GET傳送資料(3/14更新)
 
 3.Node.jS初學者筆記(2)-用POST傳送資料
 
