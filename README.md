@@ -8,7 +8,7 @@
 
 1.在Windows安裝Node.js和CoffeeScript超簡單!!
 
-2.Node.jS初學者筆記(1)-用GET傳送資料(3/14更新)
+2.Node.jS初學者筆記(1)-用GET傳送資料
 
 3.Node.jS初學者筆記(2)-用POST傳送資料
 
@@ -19,3 +19,5 @@
 如果想要看完整形式的，就等這邊的囉，以上。
 
 Noed.js rcok the world!
+
+(updated:2012/3/17)
