@@ -7,6 +7,7 @@
 讓我們資源回收一下，把之前signupform.html的表格，由GET改成POST即可。
 
 *signupform.html*
+
 	<!DOCTYPE html>
 	<html>
   		<head>
@@ -28,7 +29,9 @@
 
 ##Step 2－監聽data與end事件來處理POST
 讓我們先寫出改成POST之後，需要的程式碼。
+
 *app.coffee*
+
 	http = require 'http'
 	url = require 'url'
 	qs = require 'querystring'
@@ -67,9 +70,13 @@
 由於瀏覽器使用POST在上傳資料時，會將資料一塊塊地上傳，因為我們在監聽data事件時，透過formData變數將它累加起來。由於我們上傳的資料很少，一次就結束，不過如果日後需要傳的是資料比較大的檔案，這個累加動作就很重要。
 
 當資料傳完，就進到end事件中，我們用到qs.parse來解析formData。formData的內容是字串，內容是：
+
 > username=wordsmith&email=wordsmith%40some.where
+
 而qs.parse可以幫我們把這個querystring轉成物件的格式，也就是：
+
 > {username=wordsmith&email=wordsmith%40some.where}
+
 一旦轉成物件並指定給user之後，其他的事情就和GET方法時操作的一樣，寫response的表頭，將內容回傳，並將user.username和user.email代入到內容中。
 
 ##Step 3－app.js up and run

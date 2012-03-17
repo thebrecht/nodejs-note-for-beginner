@@ -9,11 +9,15 @@
 這一回其實大多數的工作都會落在前端Ajax上面，前端要負責發送與接收資料，並在接收資料後，撤掉原先發送資料的表單，並將取得的資料，改成HTML格式之後，放上頁面。
 
 我們用圖來說明一下：
+
 (1)傳送資料的表單，就外觀上和前面沒有什麼差別
+
 <img src='http://ithelp.ithome.com.tw/upload/images/20120213/201202132236124f391fdc70ed6_resize.png'/>
 
 (2)送出表單，接收資料後結果
+
 <img src='http://ithelp.ithome.com.tw/upload/images/20120213/201202132236164f391fe092de1_resize.png' />
+
 
 這裡特別加上一個會員id的資料，是在Server端加入了，當作是Server額外處理過資料再送回Client端的動作。
 
@@ -22,6 +26,7 @@
 
 ##Step.1 Ajax表單大改造
 我們把之前的signupform.html改名為ajaxSignupForm.html，然後開始內部大改造。
+
 	<!DOCTYPE html>
 	<html>
 	<head>
